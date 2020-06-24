@@ -7,17 +7,45 @@ class Home extends Component{
     constructor(){
         super();
 
-        this.state={inputValue:""}
+        this.state={
+            inputValue:"",
+            data:[]
+        };
     }
-    onClick = () => {
-        console.log("click");
+    componentDidMount = async()=>{
+        console.log("o componente foi montado!")
+        const getData = await this.props.data;
+        this.setState({data:getData});
+        console.log(this.state.data)
+    }
+
+    
+
+    onClick = async () => {
+        const{inputValue,data} = this.state;
+
+        if(inputValue && data.length){
+
+        const result = await data.filter(item => item.position.toLowerCase().includes(inputValue.toLowerCase()
+        ));
+
+        console.log({result});
+
+        this.setState({inputValue:""});
+    }else{
+        console.log("sem imput ou sem data")
+    }
       };
     
-      onChange = () => {
-        console.log("click");
+      onChange = (e) => {
+          const value = e.target.value;
+        console.log(value);
+        this.setState({ inputValue : value})
       };
 
     render(){
+        console.log("o render foi chamado!")
+        const{inputValue,data}=this.state
         return(
             <GeneralTemplate>
                 <HomeContent
@@ -25,7 +53,8 @@ class Home extends Component{
                 onClick={this.onClick}
                 type="text" 
                 placeholder= "o que você procura" 
-                value={this.state.inputvalue} 
+                value={inputValue} 
+                data={data}
                 onChange={this.onChange}
                 />
             </GeneralTemplate>

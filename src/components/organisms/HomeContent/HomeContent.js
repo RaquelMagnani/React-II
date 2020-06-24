@@ -1,11 +1,10 @@
 import React from 'react';
 import SearchBar from '../../molecules/SearchBar/SearchBar';
+import Card from "../../molecules/Card/Card"
 import "./homeContent.css"
 
 
-const HomeContent =({texto, onClick, type,placeholder,value, onChange
-
-}) =>{
+const HomeContent =({texto, onClick, type,placeholder,value, onChange,data}) =>{
     return(
         <main>
                 <h1>TechJobs</h1>
@@ -23,7 +22,26 @@ const HomeContent =({texto, onClick, type,placeholder,value, onChange
                     </div>
                 </section>
                 <section>
-                    <h2>CARDS</h2>
+                    {data ? (
+                        data.map(item => {
+                            const{logo,company,position,postedAt,contract,location,languages,tools} = item;
+                            return(
+                                <Card
+                    logo={logo}
+                     company = {company}
+                     position = {position}
+                     postedAt={postedAt}
+                     contract={contract}
+                     location={location}
+                     tools={tools}
+                     languages={languages}
+                    />
+                            )
+                        })
+                    
+                    ):(
+                        <h2>Nenhuma vaga foi encontrada</h2>
+                    )}
                 </section>
                 </main>
 

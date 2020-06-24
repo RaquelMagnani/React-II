@@ -1,12 +1,13 @@
 import React from 'react';
-import Home from "./pages/Home/Home"
+import Home from "./pages/Home/Home";
+import data from "./data.json"
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <h1>APP</h1>
-      <Home/>
+      
+      <Home data={data}/>
     </div>
   );
 }
