@@ -46,7 +46,7 @@ const FormLogin = ({onFinish}) => {
         <Button type="primary" htmlType="submit" className="login-form-button">
           Entrar
         </Button>
-        Ou <a href="">Cadastre-se</a>
+        Ou <a href="/">Cadastre-se</a>
       </Form.Item>
     </Form>
     )

@@ -14,17 +14,35 @@ const FormSignUp = ({onFinish})=>{
         }}
         onFinish={onFinish}
       >
+
         <Form.Item
           name="username"
           rules={[
             {
               required: true,
-              message: 'Campo obrigatório, insira seu nome de usuário!',
+              message: 'Campo obrigatório, insira seu nome',
             },
           ]}
         >
-          <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Usuario" />
+          <Input prefix={<UserOutlined className="site-form-item-icon" />} 
+          placeholder="Nome" />
         </Form.Item>
+
+        <Form.Item
+          name="username"
+          rules={[
+            {
+              required: true,
+              message: 'Campo obrigatório, insira seu usuario!',
+            },
+          ]}
+        >
+          <Input
+            prefix={<LockOutlined className="site-form-item-icon" />}
+            placeholder="Usuario"
+          />
+        </Form.Item>
+
         <Form.Item
           name="password"
           rules={[
@@ -40,13 +58,12 @@ const FormSignUp = ({onFinish})=>{
             placeholder="Senha"
           />
         </Form.Item>
-        
   
         <Form.Item>
           <Button type="primary" htmlType="submit" className="login-form-button">
-            Entrar
+            Cadastrar
           </Button>
-          Ou <a href="">Cadastre-se</a>
+          Ou <a href="">Login</a>
         </Form.Item>
       </Form>
     )
