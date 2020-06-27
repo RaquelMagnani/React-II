@@ -1,10 +1,11 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 import 'antd/dist/antd.css';
 import { Form, Input, Button } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import "./formSignUp.css"
 
-const FormSignUp = ({onFinish})=>{
+const FormSignUp = ({onFinish,login})=>{
     return(
         <Form
         name="normal_login"
@@ -16,7 +17,7 @@ const FormSignUp = ({onFinish})=>{
       >
 
         <Form.Item
-          name="username"
+          name="name"
           rules={[
             {
               required: true,
@@ -26,6 +27,19 @@ const FormSignUp = ({onFinish})=>{
         >
           <Input prefix={<UserOutlined className="site-form-item-icon" />} 
           placeholder="Nome" />
+        </Form.Item>
+
+        <Form.Item
+          name="e-mail"
+          rules={[
+            {
+              required: true,
+              message: 'Campo obrigatório, insira seu e-mail',
+            },
+          ]}
+        >
+          <Input prefix={<UserOutlined className="site-form-item-icon" />} 
+          placeholder="email" />
         </Form.Item>
 
         <Form.Item
@@ -60,10 +74,10 @@ const FormSignUp = ({onFinish})=>{
         </Form.Item>
   
         <Form.Item>
-          <Button type="primary" htmlType="submit" className="login-form-button">
+          <Button type="primary" htmlType="submit" className="login-form-button" onClick={login}>
             Cadastrar
           </Button>
-          Ou <a href="">Login</a>
+          Ou <Link to="/login">Login</Link>
         </Form.Item>
       </Form>
     )

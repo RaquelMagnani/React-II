@@ -1,10 +1,11 @@
 import React from 'react';
 import 'antd/dist/antd.css';
 import { Form, Input, Button } from 'antd';
+import {Link} from "react-router-dom"
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import "./formLogin.css"
 
-const FormLogin = ({onFinish}) => {
+const FormLogin = ({onFinish,login}) => {
     return(
         <Form
       name="normal_login"
@@ -43,10 +44,10 @@ const FormLogin = ({onFinish}) => {
       
 
       <Form.Item>
-        <Button type="primary" htmlType="submit" className="login-form-button">
+        <Button type="primary" htmlType="submit" className="login-form-button" onClick={login}>
           Entrar
         </Button>
-        Ou <a href="/">Cadastre-se</a>
+        Ou <Link to="/signup">Cadastre-se</Link>
       </Form.Item>
     </Form>
     )

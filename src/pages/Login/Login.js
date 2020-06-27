@@ -13,15 +13,18 @@ constructor(){
 }
 
 onFinish = (value)=>{
-    console.log("Dados enviados",value)
+    console.log("Dados enviados",value);
+    this.props.history.push("/");
 }
 
     render(){
+        const{login , loggedUser}=this.props;
         return(
-            <GeneralTemplate>
-                <LoginContent 
+            <GeneralTemplate loggedUser={loggedUser}>
+                <LoginContent  
                 titulo="Acesse sua conta"
                 onFinish={this.onFinish}
+                login={login}
                 />
 
             </GeneralTemplate>
